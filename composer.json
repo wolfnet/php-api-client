@@ -1,7 +1,7 @@
 {
     "name": "wolfnet/api-client",
     "description": "This is a PHP implementation of the WolfNet Technologies API Client.",
-    "version": "0.1.0-alpha",
+    "version": "0.1.1-alpha",
     "type": "library",
     "keywords": ["api","real estate","idx","search"],
     "homepage": "http://github.com/wolfnet/php-api-client",
