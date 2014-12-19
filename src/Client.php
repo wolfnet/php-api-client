@@ -1,8 +1,8 @@
 <?php
 
-namespace \Wolfnet\API;
+namespace Wolfnet\API;
 
-use \GuzzleHttp\Client as HttpClient;
+use \Guzzle\Http\Client as HttpClient;
 
 class Client {
 
@@ -24,8 +24,7 @@ class Client {
         $this->version = $version;
         $this->timeout = $timeout;
 
-        $this->httpClient = new HttpClient([
-            'base_url' => 'https://' . $this->host . ($this->port !== 80 ? ':' . $this->port : ''),
+        $this->httpClient = new HttpClient('https://' . $this->host . ($this->port !== 80 ? ':' . $this->port : ''), [
             'default' => [
                 'query' => [
                     'v' => $this->version
@@ -38,22 +37,33 @@ class Client {
 
     /* PUBLIC METHODS *************************************************************************** */
 
-    public function send($key, $resource, $method='GET', Array $data=[], Array $headers=[], $noAuth=false)
+    public function send($token, $resource, $method='GET', Array $data=[], Array $headers=[], $noAuth=false)
     {
-        $requestOptions = [
-            'headers' => $headers,
-        ];
+        $headers['api_token'] = $token;
 
-        if (array_search($method, ['POST', 'PUT', 'PATCH']) != -1) {
-            $requestOptions['json'] = $data;
-        } else {
-            $requestOptions['query'] = $data;
-        }
+        $request = $this->httpClient->createRequest($method, $resource, $headers);
 
-        $requestOptions['query']['v'] = $this->version;
-        // $requestOptions['query']['key'] = $this->version;
+        $response = $this->httpClient->send($request);
 
-        $request = $client->createRequest($method, $resource, $requestOptions);
+        return json_decode($response->getBody());
+
+    }
+
+
+    public function authenticate($key)
+    {
+        $request = $this->httpClient->post('/core/auth');
+
+        $query = $request->getQuery();
+        $query->set('v', $this->version);
+        $query->set('key', $key);
+
+        $response = $this->httpClient->send($request);
+
+        $responseData = json_decode($response->getBody());
+
+        return $responseData->data->api_token;
+
     }
 
 
