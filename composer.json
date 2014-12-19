@@ -4,7 +4,7 @@
     "version": "0.1.0-alpha",
     "type": "library",
     "keywords": ["api","real estate","idx","search"],
-    "homepage": "http://github.com/wolfnet/PHPClient",
+    "homepage": "http://github.com/wolfnet/php-api-client",
     "license": "GPL-2.0+",
     "authors": [
         {
@@ -16,8 +16,8 @@
     ],
     "support": {
         "email": "service@wolfnet.com",
-        "issues": "https://github.com/wolfnet/PHPClient/issues",
-        "wiki": "https://github.com/wolfnet/PHPClient/wiki"
+        "issues": "https://github.com/wolfnet/php-api-client/issues",
+        "wiki": "https://github.com/wolfnet/php-api-client/wiki"
     },
     "require": {
         "guzzle/http": "3.9.2"
