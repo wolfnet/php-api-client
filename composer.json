@@ -1,0 +1,16 @@
+{
+    "name": "wolfnet/api-client",
+    "description": "This is a PHP implementation of the WolfNet Technologies API Client.",
+    "authors": [
+        {
+            "name": "AJ Michels",
+            "email": "ajmichels.web@gmail.com"
+        }
+    ],
+    "require": {
+        "guzzle/http": "3.9.2"
+    },
+    "autoload": {
+        "psr-4": {"Wolfnet\\API\\": "src/"}
+    }
+}
