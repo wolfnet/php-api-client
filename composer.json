@@ -1,12 +1,24 @@
 {
-    "name": "wolfnet/api-client",
+    "name": "wolfnet/PHPClient",
     "description": "This is a PHP implementation of the WolfNet Technologies API Client.",
+    "version": "0.1.0-alpha",
+    "type": "library",
+    "keywords": ["api","real estate","idx","search"],
+    "homepage": "http://github.com/wolfnet/PHPClient",
+    "license": "GPL-2.0+",
     "authors": [
         {
             "name": "AJ Michels",
-            "email": "ajmichels.web@gmail.com"
+            "email": "ajmichels.web@gmail.com",
+            "homepage": "http://ajmichels.com",
+            "role": "Developer"
         }
     ],
+    "support": {
+        "email": "service@wolfnet.com",
+        "issues": "https://github.com/wolfnet/PHPClient/issues",
+        "wiki": "https://github.com/wolfnet/PHPClient/wiki"
+    },
     "require": {
         "guzzle/http": "3.9.2"
     },
