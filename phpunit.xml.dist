@@ -3,8 +3,8 @@
 <phpunit bootstrap="vendor/autoload.php" colors="true">
 
     <testsuites>
-        <testsuite name="API Client Test Suite">
-            <directory>tests/</directory>
+        <testsuite name="basic">
+            <directory>tests</directory>
         </testsuite>
     </testsuites>
 
@@ -13,5 +13,11 @@
             <directory suffix=".php">src/</directory>
         </whitelist>
     </filter>
+
+    <php>
+        <!-- PROVIDE THESE VALUES IN phpunit.xml -->
+        <!-- <const name="MASTER_KEY" value="XXXXXXXXXXXXXXXXXXXX"/> -->
+        <!-- <const name="CLIENT_KEY" value="XXXXXXXXXXXXXXXXXXXX"/> -->
+    </php>
 
 </phpunit>
